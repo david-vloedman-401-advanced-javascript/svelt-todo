@@ -25,8 +25,7 @@
 
 	function toggleDone(id){
 		const index = todoItems.findIndex(item => item.id === Number(id));
-		todoItems[index].checked = !todoItems[index].checked;
-		console.log(todoItems)
+		todoItems[index].checked = !todoItems[index].checked;		
 	}
 
 	function deleteTodo(id){
@@ -38,10 +37,8 @@
   <div>
     <h1>todos</h1>
     <ul class="todo-list">
-			{#each todoItems as todo (todo.id)}
-			
+			{#each todoItems as todo (todo.id)}			
 			<li class="todo-item {todo.checked ? 'done' : ''}">
-
 				<input id={todo.id} type="checkbox" on:click={() => toggleDone(todo.id)}/>
 				<lable for={todo.id} class="tick" ></lable>
 				<span>{todo.text}</span>
@@ -49,8 +46,6 @@
 					Delete Item
 				</button>
 			</li>
-
-
 			{/each}
 		</ul>
     <div>      
